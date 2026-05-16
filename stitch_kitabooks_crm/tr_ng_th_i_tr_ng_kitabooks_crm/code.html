@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Literata:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#6b5c4a",
+                    "on-background": "#211b13",
+                    "surface-bright": "#fff8f4",
+                    "secondary-fixed-dim": "#d7c3ae",
+                    "tertiary-fixed": "#f7dfc4",
+                    "primary": "#825500",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#fff1e5",
+                    "on-primary-fixed": "#291800",
+                    "tertiary": "#6d5c46",
+                    "outline-variant": "#d6c4b0",
+                    "on-primary-container": "#412800",
+                    "secondary-container": "#f1dcc6",
+                    "on-tertiary-fixed": "#251909",
+                    "surface-container-high": "#f3e6da",
+                    "inverse-on-surface": "#fcefe2",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary-container": "#c8881c",
+                    "inverse-surface": "#362f27",
+                    "on-secondary-container": "#6f604e",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#524434",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#f4dfc9",
+                    "tertiary-container": "#a6927a",
+                    "on-tertiary-fixed-variant": "#544430",
+                    "on-surface": "#211b13",
+                    "inverse-primary": "#ffb952",
+                    "tertiary-fixed-dim": "#d9c3a9",
+                    "surface": "#fff8f4",
+                    "background": "#fff8f4",
+                    "primary-fixed-dim": "#ffb952",
+                    "on-tertiary-container": "#392b19",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#e4d8cc",
+                    "on-primary-fixed-variant": "#633f00",
+                    "surface-tint": "#825500",
+                    "primary-fixed": "#ffddb3",
+                    "surface-container": "#f9ecdf",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#241a0c",
+                    "outline": "#837563",
+                    "surface-variant": "#ede0d4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#514535",
+                    "surface-container-highest": "#ede0d4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-mobile": "20px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "section-gap": "64px",
+                    "container-padding-desktop": "40px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Literata"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Literata"],
+                    "caption": ["Inter"],
+                    "headline-lg-mobile": ["Literata"],
+                    "headline-md": ["Literata"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background-color: rgba(251, 248, 241, 0.8);
+            border: 1px border rgba(168, 153, 128, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 border-r border-outline-variant/20 bg-surface-container-low/90 backdrop-blur-2xl flex flex-col p-6 space-y-8 z-50">
+<div class="flex items-center space-x-3 px-2">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="auto_stories">auto_stories</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface">Kitabooks</h1>
+<p class="font-label-md text-label-md text-secondary opacity-70">Private Heritage CRM</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-surface-variant/40 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Manuscripts active state as requested for the context of empty state manuscripts -->
+<a class="flex items-center space-x-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-medium translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-md text-label-md">Manuscripts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-surface-variant/40 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md">Collections</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-surface-variant/40 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Acquisitions</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-secondary hover:bg-surface-variant/40 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label-md text-label-md">History</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/20 space-y-2">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg font-label-md text-label-md font-bold transition-all active:scale-95 mb-4">
+                New Entry
+            </button>
+<a class="flex items-center space-x-3 px-4 py-2 text-secondary hover:bg-surface-variant/40 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 text-secondary hover:bg-surface-variant/40 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 ml-72 flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 px-10 py-4 flex justify-between items-center w-full">
+<div class="flex items-center space-x-8">
+<div class="flex items-center space-x-6">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Catalog</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Curations</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Archives</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Ledger</a>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="bg-surface-container border-b border-outline-variant/50 focus:border-primary px-10 py-2 rounded-t-lg font-label-md text-label-md outline-none w-64 transition-all" placeholder="Search archives..." type="text"/>
+</div>
+<div class="flex items-center space-x-3">
+<button class="p-2 text-secondary hover:bg-surface-container-low/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-low/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-high border border-outline-variant/30 overflow-hidden ml-2">
+<img alt="Curator Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of an elderly, sophisticated library curator with silver hair and wire-rim glasses. He is wearing a classic tweed blazer in a soft beige room with warm, diffused sunlight. The atmosphere is intellectual and serene, matching a high-end heritage library aesthetic with soft cream and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4jD8S7eUosyB2b6z43l8yr8Xs_jvV2KMdkyk50PZsMjNuOW_6lV1JScNwHBddVLwqAusg5V9zLAhbkOR1DU5cLp6O0bIc1sEQr4q8K284IymCgaSKs6aSiC3XB7aBWfHUkSBw02FJD_4Pw9wpCFljGi5hmIiumfwF6vpkYso71HYsHMxNzVetPzkcMRmJ-hdDx-Tos3ZjiTLU5I1Dg-9hAoV_pNWw-J_hwN8X-7F7zPDblooA2G4l_ENMHt9V__f9fwuLsSJX6SIg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Empty State Content -->
+<section class="flex-1 flex flex-col items-center justify-center p-container-padding-desktop bg-surface-bright">
+<div class="max-w-4xl w-full flex flex-col items-center text-center space-y-12">
+<!-- Fine-line Illustration Placeholder -->
+<div class="relative w-full max-w-2xl aspect-[16/9] glass-card rounded-[20px] p-8 overflow-hidden shadow-sm flex items-center justify-center">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#825500 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+<!-- Artistic Illustration -->
+<div class="relative z-10 w-full h-full flex items-center justify-center">
+<img alt="Empty Classic Bookshelf" class="w-full h-full object-contain mix-blend-multiply opacity-80" data-alt="A delicate, fine-line ink drawing of a classic, ornate mahogany bookshelf set against a textured parchment background. Several shelves are empty, showing only the rich wood grain and subtle shadows, while a few leather-bound books rest at the edges. The lighting is soft and atmospheric, like an old study at twilight. The style is minimalist yet traditional, using tones of amber gold and deep espresso." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxv8vQXRwhrFWBZo8ZmbEqzFto1bHG-6JGvrIhwz0s7AtOyNYndkgBWscxdck1mUne3zqfnUiR-CjCIo42hJiqv3UO0lUuxUgr5BC6_ze6ttlW9f8_qqYa6-wfat0Fz1yfh1PxFubPpFFZ6oVGMhTUE5ZqIGnolNqg6_rY0x3-5qSZMk_Dk2y5XcgZuxn34m0CM7MMP59Nha2Vrz7njvpYhzxnZqO08E9IJdEoTd6zLwYd12eWzuF0JR8gpJhpBmnxAwEM13nXg9uf"/>
+</div>
+</div>
+<!-- Text Content -->
+<div class="space-y-4 max-w-xl">
+<h2 class="font-display-lg text-display-lg text-primary">Kệ sách đang chờ những chương mới</h2>
+<p class="font-body-lg text-body-lg text-secondary">
+                        Hiện chưa có bản thảo nào được ghi nhận. Hãy bắt đầu hành trình lưu trữ di sản của bạn ngay hôm nay.
+                    </p>
+</div>
+<!-- Action Button -->
+<div class="flex flex-col items-center space-y-6">
+<button class="bg-primary px-10 py-4 rounded-lg text-white font-label-md text-label-md font-bold uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                        Thêm bản thảo đầu tiên
+                    </button>
+<div class="flex items-center space-x-8">
+<div class="flex items-center space-x-2 text-secondary/60">
+<span class="material-symbols-outlined text-[20px]" data-icon="import_contacts">import_contacts</span>
+<span class="font-label-md text-label-md">Nhập từ file PDF/Word</span>
+</div>
+<div class="flex items-center space-x-2 text-secondary/60">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md">Dùng mẫu Heritage</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Subtle Page Footer -->
+<footer class="px-10 py-8 border-t border-outline-variant/10 flex justify-between items-center bg-surface-bright">
+<div class="flex space-x-6">
+<span class="font-caption text-caption text-outline">© 2024 Kitabooks Archive System</span>
+<span class="font-caption text-caption text-outline">v2.4.0 "Renaissance"</span>
+</div>
+<div class="flex space-x-4">
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40"></div>
+<div class="w-2 h-2 rounded-full bg-primary/60"></div>
+</div>
+</footer>
+</main>
+</body></html>

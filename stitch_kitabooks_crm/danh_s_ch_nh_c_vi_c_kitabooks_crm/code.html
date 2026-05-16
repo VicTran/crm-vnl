@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff8f4;
+        }
+        .font-headline {
+            font-family: 'Literata', serif;
+        }
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background: rgba(251, 248, 241, 0.8);
+            border: 1px solid rgba(168, 153, 128, 0.3);
+        }
+        .task-row:hover {
+            background: rgba(243, 230, 218, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#d6c4b0",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#ede0d4",
+                        "on-primary-fixed-variant": "#633f00",
+                        "on-secondary-fixed-variant": "#524434",
+                        "on-surface": "#211b13",
+                        "on-secondary-container": "#6f604e",
+                        "surface-container-low": "#fff1e5",
+                        "surface-container-high": "#f3e6da",
+                        "surface-bright": "#fff8f4",
+                        "primary-container": "#c8881c",
+                        "on-background": "#211b13",
+                        "on-surface-variant": "#514535",
+                        "secondary-container": "#f1dcc6",
+                        "tertiary-fixed": "#f7dfc4",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#e4d8cc",
+                        "secondary": "#6b5c4a",
+                        "primary-fixed-dim": "#ffb952",
+                        "on-primary-container": "#412800",
+                        "tertiary-container": "#a6927a",
+                        "tertiary": "#6d5c46",
+                        "outline": "#837563",
+                        "surface": "#fff8f4",
+                        "on-primary-fixed": "#291800",
+                        "primary-fixed": "#ffddb3",
+                        "inverse-surface": "#362f27",
+                        "surface-tint": "#825500",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f9ecdf",
+                        "background": "#fff8f4",
+                        "surface-container-highest": "#ede0d4",
+                        "on-tertiary-fixed-variant": "#544430",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb952",
+                        "inverse-on-surface": "#fcefe2",
+                        "on-secondary-fixed": "#241a0c",
+                        "secondary-fixed-dim": "#d7c3ae",
+                        "tertiary-fixed-dim": "#d9c3a9",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#f4dfc9",
+                        "on-primary": "#ffffff",
+                        "primary": "#825500",
+                        "on-tertiary-fixed": "#251909",
+                        "on-tertiary-container": "#392b19"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-gap": "64px",
+                        "base": "8px",
+                        "container-padding-desktop": "40px",
+                        "container-padding-mobile": "20px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="flex justify-center items-center w-full px-container-padding-mobile md:px-container-padding-desktop py-4 bg-transparent fixed top-0 z-50">
+<div class="flex justify-between items-center w-full max-w-7xl">
+<div class="flex items-center gap-8">
+<span class="font-headline font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Kitabooks CRM</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Tổng quan</a>
+<a class="text-primary font-bold transition-colors duration-200 font-body-md text-body-md" href="#">Công việc</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Khách hàng</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Thư viện</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a museum curator in a sophisticated light-filled office. The lighting is soft and natural, emphasizing a calm and intellectual atmosphere. The curator is dressed in elegant, muted professional attire consistent with a luxury library or heritage setting. The background is softly blurred, showing hints of leather-bound books and warm wood textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWMXnBuDlHp3aCEg1MAYNO7fJBmcVGqPkTDA1pMpxikmolVh5ZjzXxbWSkUFMqFkhTRy8-vnyUbSw3btg6XE28GP7gc4HeClRZVUABiHe9PHQ5C9Fg201NlaPs-MJ8mcqLXK3V9Cwe8dDnd7PMwx0_XezX7omZ5tudGJ37yRIs9bXZ6jEm6YfOXkGe7BDSfoAcgEjhkQfw7AhBb-9Gqn6HhTIwwBlQ1mLyQc5RocI9CS5q8mbtDd5GWqh_3zuEuByrFAs5I8plYNuh"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-container-padding-mobile md:px-container-padding-desktop max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
+<!-- Main Content Area -->
+<div class="flex-1">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h1 class="font-headline text-headline-lg font-light text-on-background mb-2">Danh sách nhắc việc</h1>
+<p class="text-on-surface-variant font-body-md">Quản lý các nhiệm vụ và lịch trình chăm sóc độc giả của bạn.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md">Thêm nhiệm vụ mới</span>
+</button>
+</div>
+<!-- Quick Filters -->
+<div class="flex flex-wrap gap-3 mb-8">
+<button class="px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-label-md">Tất cả</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md hover:bg-surface-variant transition-colors">Hôm nay</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md hover:bg-surface-variant transition-colors">Tuần này</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md hover:bg-surface-variant transition-colors">Đã hoàn thành</button>
+</div>
+<!-- Tasks Table/List -->
+<div class="glass-card rounded-[20px] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20">
+<th class="p-5 font-label-md text-on-surface-variant uppercase tracking-wider w-12"></th>
+<th class="p-5 font-label-md text-on-surface-variant uppercase tracking-wider">Nhiệm vụ</th>
+<th class="p-5 font-label-md text-on-surface-variant uppercase tracking-wider">Ưu tiên</th>
+<th class="p-5 font-label-md text-on-surface-variant uppercase tracking-wider">Hạn chót</th>
+<th class="p-5 font-label-md text-on-surface-variant uppercase tracking-wider">Phụ trách</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Task Item 1 -->
+<tr class="task-row transition-colors cursor-pointer">
+<td class="p-5 text-center">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+</td>
+<td class="p-5">
+<div class="font-body-md font-medium text-on-surface">Gửi danh mục sách mới cho khách hàng VIP</div>
+<div class="text-caption text-on-surface-variant mt-1">Gửi qua email đính kèm bản PDF thiết kế mới</div>
+</td>
+<td class="p-5">
+<span class="px-3 py-1 rounded-full text-[12px] bg-error-container text-on-error-container border border-error/10">Cao</span>
+</td>
+<td class="p-5 text-on-surface-variant font-body-md">14:00, 20/10</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male librarian in a classic scholarly setting. He has a warm, focused expression and is wearing a modern tailored tweed jacket over a crisp shirt. The background consists of tall, dark wood bookshelves filled with antique books, softly lit by a warm ambient glow, creating a feeling of expertise and tradition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn9ppOjyngxUQJGLipC2qc1Rg8MKS3S13c5iooA4hX1i8R7EKrThUio6Ih94cMaCqEePAzZrPUJX4i4KmVAWug1cAv1C9uCh0MRPPEqnmzmKyrI3MnxCgia5gHsPHa7Om-SSQxBcRmtCDpKrUzpJ1tkcDK3JPfDt9sEgVBOU5wznWnZJObETig8wNmkS1NPBoJCe-IOmPJOW-bwq3RIZkH0DAA3BeIOb6bjIE-PY4xGAYalgfH3VXpsgNLCDeLW_dEt9KQSrijt0PN"/>
+</div>
+<span class="font-body-md">Lê Minh</span>
+</div>
+</td>
+</tr>
+<!-- Task Item 2 -->
+<tr class="task-row transition-colors cursor-pointer bg-surface-container-low/30">
+<td class="p-5 text-center">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+</td>
+<td class="p-5">
+<div class="font-body-md font-medium text-on-surface">Gọi điện tư vấn thẻ thành viên</div>
+<div class="text-caption text-on-surface-variant mt-1">Khách hàng: Nguyễn Văn An - SĐT: 090xxx</div>
+</td>
+<td class="p-5">
+<span class="px-3 py-1 rounded-full text-[12px] bg-secondary-container text-on-secondary-container border border-secondary/10">Trung bình</span>
+</td>
+<td class="p-5 text-on-surface-variant font-body-md">10:30, 21/10</td>
+<td class="p-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-fixed-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a female book curator with a gentle, intelligent look. She is in a high-end boutique bookstore environment with soft cream walls and elegant gold accents. The lighting is diffused and professional, casting a serene atmosphere. Her attire is minimalist and sophisticated, reflecting a modern but heritage-inspired aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQjiUligWbXI4_X4yfgblAxO-KaBPomeacTu0xPlSjYnLwZZPxtOgJ3c0gWJZ_pwx68j9II59ZiqltwcZN4b9CqMCDb_Eu2gyDnmzAPfCX2WgSLpRMF1pCOPMWjiOK38ZiPkF5EuufVDykdmGz7SiSy-FImgnFg87Wm7w7fmkw7i-k97FPYFjPP3RwMXTglZ1Ht1TTaPsmqRDc7-zKW1vk4EEcQSSRm0rb-AibaHAUS4Ib-wu75f7i_X4bXYfICKeC_0wPCqvQs9Wb"/>
+</div>
+<span class="font-body-md">Hà Vi</span>
+</div>
+</td>
+</tr>
+<!-- Task Item 3 -->
+<tr class="task-row transition-colors cursor-pointer">
+<td class="p-5 text-center">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+</td>
+<td class="p-5">
+<div class="font-body-md font-medium text-on-surface-variant line-through">Kiểm kê kho sách quý tháng 9</div>
+<div class="text-caption text-on-surface-variant mt-1">Hoàn thành báo cáo và cập nhật phần mềm</div>
+</td>
+<td class="p-5">
+<span class="px-3 py-1 rounded-full text-[12px] bg-surface-container-highest text-on-surface-variant border border-outline-variant/20">Thấp</span>
+</td>
+<td class="p-5 text-on-surface-variant font-body-md">Đã hoàn thành</td>
+<td class="p-5">
+<div class="flex items-center gap-2 opacity-60">
+<div class="w-6 h-6 rounded-full bg-tertiary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="The same male librarian from previous scenes, now captured in a slightly different angle, maintaining the same scholarly and professional look. The warm heritage library aesthetic is consistent with the global visual brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-jQqGhTrM82f9m2GFlJhf8-T0ZD-5-Nua9wDJ4QG8kbQ8FcKeRUWRpnodr4Ny0AJKxcEy3FPiXtWrhH9U0Tz_kdTNKYSA5caN_cZPLonODfXgQnpJvvcE5MICXsFN3Xpz3IG_u85bK3e5GhxUeUzdQAS8SxkrhJjyx82TUgUncTiGHnMYtPp2GltaqMyAWadC_0kVe98uin6thQTjuuxbLkXv8TjpcT3QPCOp9ETn2AvtGJdf66Ddd3AV8KSshWWwH6jeu9o_Dppc"/>
+</div>
+<span class="font-body-md">Lê Minh</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Detail Side Panel (Modal Style) -->
+<aside class="w-full md:w-80 flex flex-col gap-6">
+<div class="glass-card rounded-[20px] p-6 sticky top-24">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline text-headline-md text-on-surface">Chi tiết</h3>
+<button class="p-1 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">edit</span></button>
+</div>
+<div class="space-y-6">
+<div>
+<label class="font-label-md text-primary block mb-1">TÊN NHIỆM VỤ</label>
+<p class="font-body-md text-on-surface font-medium leading-relaxed">Gửi danh mục sách mới cho khách hàng VIP</p>
+</div>
+<div>
+<label class="font-label-md text-primary block mb-1">GHI CHÚ</label>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Ưu tiên các đầu sách về Lịch sử Việt Nam thế kỷ 19. Đảm bảo bản PDF đã được tối ưu hóa dung lượng trước khi gửi.</p>
+</div>
+<hr class="border-outline-variant/20"/>
+<div>
+<label class="font-label-md text-primary block mb-3">LỊCH SỬ TRAO ĐỔI</label>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+<div>
+<p class="font-caption font-bold text-on-surface">Hệ thống</p>
+<p class="font-caption text-on-surface-variant">Đã gửi email nhắc nhở cho Lê Minh.</p>
+<span class="text-[10px] text-on-surface-variant/60">08:00 - 20/10</span>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+</div>
+<div>
+<p class="font-caption font-bold text-on-surface">Lê Minh</p>
+<p class="font-caption text-on-surface-variant">Đã nhận. Đang chuẩn bị tệp tin đính kèm.</p>
+<span class="text-[10px] text-on-surface-variant/60">09:15 - 20/10</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<div class="flex items-center gap-2 p-3 bg-background rounded-lg border-b border-primary/30">
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full placeholder:text-on-surface-variant/40" placeholder="Thêm bình luận..." type="text"/>
+<button class="text-primary hover:opacity-80"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Insight -->
+<div class="bg-primary/5 rounded-[20px] p-6 border border-primary/10">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="font-label-md text-primary">GỢI Ý TỪ CRM</h4>
+</div>
+<p class="font-body-md text-on-surface-variant italic">"Khách hàng VIP thường phản hồi tốt nhất vào sáng thứ Hai. Bạn nên lên lịch gửi email hàng loạt vào khung giờ 09:00 - 10:00."</p>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full flex flex-col items-center pb-8 gap-2 bg-transparent pointer-events-none">
+<div class="pointer-events-auto flex flex-col items-center">
+<span class="font-caption text-caption text-on-surface-variant">© 2024 Kitabooks CRM. All rights reserved.</span>
+<div class="flex gap-4 mt-1">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- FAB for Task Focused Journey (Suppressed as per rules but keep if primary action needed) -->
+<!-- The rules say suppress FAB on Task-Focused/Details. We keep it only on main Dashboard. This IS a task list, so we used the header button instead. -->
+</body></html>

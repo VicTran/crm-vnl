@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@300;400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "background": "#fff8f4",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a6927a",
+                    "on-secondary": "#ffffff",
+                    "primary": "#825500",
+                    "on-surface-variant": "#514535",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#f3e6da",
+                    "inverse-primary": "#ffb952",
+                    "on-secondary-fixed-variant": "#524434",
+                    "tertiary-fixed": "#f7dfc4",
+                    "outline": "#837563",
+                    "on-primary-container": "#412800",
+                    "surface-tint": "#825500",
+                    "surface": "#fff8f4",
+                    "on-primary-fixed": "#291800",
+                    "on-tertiary-container": "#392b19",
+                    "on-secondary-fixed": "#241a0c",
+                    "surface-container-low": "#fff1e5",
+                    "tertiary": "#6d5c46",
+                    "on-primary-fixed-variant": "#633f00",
+                    "inverse-on-surface": "#fcefe2",
+                    "secondary-container": "#f1dcc6",
+                    "outline-variant": "#d6c4b0",
+                    "on-tertiary-fixed-variant": "#544430",
+                    "on-secondary-container": "#6f604e",
+                    "inverse-surface": "#362f27",
+                    "surface-dim": "#e4d8cc",
+                    "surface-container-highest": "#ede0d4",
+                    "secondary-fixed": "#f4dfc9",
+                    "on-background": "#211b13",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f9ecdf",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#ede0d4",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#251909",
+                    "on-surface": "#211b13",
+                    "primary-container": "#c8881c",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fff8f4",
+                    "secondary": "#6b5c4a",
+                    "tertiary-fixed-dim": "#d9c3a9",
+                    "secondary-fixed-dim": "#d7c3ae",
+                    "primary-fixed-dim": "#ffb952",
+                    "primary-fixed": "#ffddb3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-padding-mobile": "20px",
+                    "container-padding-desktop": "40px",
+                    "section-gap": "64px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Literata"],
+                    "headline-md": ["Literata"],
+                    "headline-lg-mobile": ["Literata"],
+                    "caption": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Literata"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background-color: rgba(251, 248, 241, 0.8);
+            border: 1px solid rgba(168, 153, 128, 0.3);
+            border-radius: 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Authority: JSON & Strategy) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low/90 backdrop-blur-xl border-r border-outline-variant/20 py-gutter px-4 z-50">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary leading-tight">Kitabooks</h1>
+<p class="font-caption text-on-surface-variant uppercase tracking-widest text-[10px]">Heritage CRM</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active State: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-surface-container-highest/50 rounded-lg transition-all scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/30 hover:text-primary transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-body-md">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/30 hover:text-primary transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md">Members</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/30 hover:text-primary transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">library_add</span>
+<span class="font-body-md">Acquisitions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/30 hover:text-primary transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-body-md">Archives</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 space-y-1">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-xl font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Add Volume
+            </button>
+<div class="pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-caption">Help</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-error transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-caption">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="md:pl-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-container-desktop py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none border-b border-outline-variant focus:border-primary-container focus:ring-0 text-body-md py-2 pl-10 pr-4 transition-all" placeholder="Tìm kiếm trong thư viện..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high/50 rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high/50 rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="font-label-md text-on-surface leading-none">Minh Trần</p>
+<p class="font-caption text-on-surface-variant">Curator Profile</p>
+</div>
+<img alt="Curator Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant/50 group-hover:border-primary transition-colors" data-alt="A professional portrait of a male curator in a sophisticated setting, wearing a tailored blazer. The lighting is soft and warm, reminiscent of an upscale library. The background is slightly blurred, showing hints of leather-bound books and warm wood textures, aligning with a heritage and intellectual brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfUyDcQGSza9G44eJXK3nR78JV8V-7zNO3IS5MAPOoo8_lxiRIpP9hNjHSzgLls3Yl2IfmN9EjsLI0PX-4QmJdXP07uLqwjNkZQTTE68jIAD3Vuw6om-dwgcuIr8ZdivNY27OKEWez4hBs8O9PcZ_KHGqoRI_zioEu5UV_PVMZPYnnYZPExJFmjHYyebkP-UC8SlRGEk4aGaBZIqOzgmntR4cR5gIDH_yHxxX8rJFneWxJX1v0BLL60cbg8AdwbzjWZKG3EL4A6yid"/>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<div class="p-container-desktop max-w-7xl mx-auto space-y-10">
+<!-- Greeting -->
+<section class="space-y-1">
+<h2 class="font-headline-lg text-headline-lg text-primary">Xin chào, Thủ thư</h2>
+<p class="font-body-md text-on-surface-variant italic">Thứ Tư, ngày 22 tháng 5 năm 2024 — Tiết trời thanh tịnh cho việc lưu trữ.</p>
+</section>
+<!-- Stats Overview (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card p-6 flex flex-col justify-between min-h-[140px] hover:translate-y-[-4px] transition-transform duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Tổng số bản sách</span>
+<span class="material-symbols-outlined text-primary">library_books</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-lg text-headline-lg text-on-surface">12,480</span>
+<p class="font-caption text-on-tertiary-container mt-1">+12 bản mới tuần này</p>
+</div>
+</div>
+<div class="glass-card p-6 flex flex-col justify-between min-h-[140px] hover:translate-y-[-4px] transition-transform duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Thành viên tích cực</span>
+<span class="material-symbols-outlined text-primary">person_check</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,240</span>
+<p class="font-caption text-on-tertiary-container mt-1">85% tỷ lệ tương tác</p>
+</div>
+</div>
+<div class="glass-card p-6 flex flex-col justify-between min-h-[140px] hover:translate-y-[-4px] transition-transform duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Sách mới nhập</span>
+<span class="material-symbols-outlined text-primary">auto_stories</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-lg text-headline-lg text-on-surface">84</span>
+<p class="font-caption text-on-tertiary-container mt-1">Trong tháng này</p>
+</div>
+</div>
+<div class="glass-card p-6 flex flex-col justify-between min-h-[140px] hover:translate-y-[-4px] transition-transform duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Yêu cầu mượn</span>
+<span class="material-symbols-outlined text-primary">pending_actions</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-lg text-headline-lg text-on-surface">12</span>
+<p class="font-caption text-error font-medium mt-1">Cần xử lý ngay</p>
+</div>
+</div>
+</section>
+<!-- Main Workspace Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left: Recent Activity & Tasks -->
+<div class="lg:col-span-2 space-y-8">
+<div class="glass-card p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Hoạt động gần đây</h3>
+<button class="text-primary font-label-md hover:underline">Xem tất cả</button>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4 pb-6 border-b border-outline-variant/10">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-body-md text-on-surface font-medium">Cập nhật kho sách cổ</p>
+<span class="font-caption text-on-surface-variant">10 phút trước</span>
+</div>
+<p class="font-caption text-on-surface-variant mt-1">Đã kiểm kê và số hóa 15 bản thảo thời Lê Trung Hưng.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 pb-6 border-b border-outline-variant/10">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-sm">person_add</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-body-md text-on-surface font-medium">Thành viên mới đăng ký</p>
+<span class="font-caption text-on-surface-variant">2 giờ trước</span>
+</div>
+<p class="font-caption text-on-surface-variant mt-1">Giáo sư Nguyễn Văn A đã gia nhập hệ thống thẻ Kim Cương.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-body-md text-on-surface font-medium">Nhập kho lô sách mới</p>
+<span class="font-caption text-on-surface-variant">Hôm qua</span>
+</div>
+<p class="font-caption text-on-surface-variant mt-1">24 đầu sách về nghệ thuật gốm sứ đã được dán nhãn RFID.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-card p-6 bg-primary-container/5">
+<h4 class="font-label-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">priority_high</span>
+                                Nhiệm vụ ưu tiên
+                            </h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 font-body-md text-on-surface">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+                                    Kiểm tra độ ẩm kho lưu trữ số 3
+                                </li>
+<li class="flex items-center gap-3 font-body-md text-on-surface">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+                                    Gửi thông báo quá hạn (5 thành viên)
+                                </li>
+</ul>
+</div>
+<div class="glass-card p-6">
+<h4 class="font-label-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                Sự kiện sắp tới
+                            </h4>
+<p class="font-body-md text-on-surface">Triển lãm "Hồn chữ Việt"</p>
+<p class="font-caption text-primary">Bắt đầu sau 3 ngày</p>
+</div>
+</div>
+</div>
+<!-- Right: Featured Manuscript (Highlight Card) -->
+<div class="space-y-8">
+<section class="glass-card overflow-hidden group">
+<div class="relative h-64 overflow-hidden">
+<img alt="Rare Manuscript" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up, high-detail photograph of an ancient, leather-bound book with intricate gold leaf embossing on the cover. The book rests on a dark wooden surface, illuminated by a single, dramatic shaft of warm light that highlights the texture of the aged paper and the fine craftsmanship of the binding. The atmosphere is quiet, reverent, and scholarly, consistent with a high-end heritage library aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA1O71r7yreTovJILrbv349FzsTjlZ0FXRlTQa9F24BBMMvTrhIuQ9eGLGbk8nDM0KP35PDA7vH6RS7EtxxD_gdCbyUBmdi2DBAItrVasvH71lek0_ApzNwJf1Kwfk5ZAvaSDPsoY1cRn8vLPMfEv6Ds4HCDzOhVemuoJUY982gtJzou5Nksz4VqxkFdRp58N1OTf3jp4ahuK-ZpMpaoVzVxY4hfZZSHvz1r_zM7FNo40TMolZ0p2zTxBUTPuxCAP9z5UxnDzXR8Bs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 right-6">
+<span class="px-2 py-1 bg-primary text-on-primary text-[10px] font-bold rounded uppercase tracking-widest">Vật phẩm quý hiếm</span>
+<h3 class="text-white font-headline-md mt-2">Bản Thảo Cổ Học</h3>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<p class="font-body-md text-on-surface-variant">Một bản sao hiếm hoi từ thế kỷ 18, ghi chép về các phương pháp in ấn truyền thống tại Việt Nam.</p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/20">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-fixed flex items-center justify-center text-[10px] font-bold">KH</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-secondary-fixed flex items-center justify-center text-[10px] font-bold">VH</div>
+</div>
+<button class="flex items-center gap-2 text-primary font-label-md hover:gap-3 transition-all">
+                                    Chi tiết
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Quick Tools -->
+<div class="glass-card p-6">
+<h4 class="font-label-md text-on-surface-variant mb-4">Công cụ nhanh</h4>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">qr_code_scanner</span>
+<span class="font-caption">Quét mã</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">print</span>
+<span class="font-caption">In nhãn</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">cloud_upload</span>
+<span class="font-caption">Tải lên</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="font-caption">Báo cáo</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Authority: Shell Visibility Rule) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md border-t border-outline-variant/20 flex justify-around items-center py-3 z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-medium">Kho</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Sách</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Cài đặt</span>
+</a>
+</nav>
+</body></html>

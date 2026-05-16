@@ -1,0 +1,86 @@
+:root {
+  /* Colors from Design Brief */
+  --paper-white: #FBF8F1;
+  --cream-mist: #F4EFE3;
+  --pure-ivory: #FFFFFF;
+  --frosted-glass: rgba(255, 251, 240, 0.65);
+  
+  --amber-gold: #C8881C;
+  --amber-gold-soft: #E8C77A;
+  --amber-gold-tint: #F7EBC9;
+  
+  --ink-brown: #3A2E1F;
+  --soft-brown: #6B5A45;
+  --muted-sand: #A89980;
+  --border-whisper: #EDE6D6;
+  
+  /* Status Colors */
+  --success-sage: #7A9A6E;
+  --warning-ochre: #D4A24A;
+  --error-clay: #B5563C;
+
+  /* Typography Scale */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --shadow-sm: 0 1px 2px rgba(58, 46, 31, 0.04);
+  --shadow-md: 0 4px 16px rgba(58, 46, 31, 0.06);
+  
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  
+  --transition: 200ms ease-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--paper-white);
+  color: var(--soft-brown);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display-font {
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--ink-brown);
+}
+
+a {
+  color: var(--amber-gold);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--amber-gold-soft);
+}
+
+.glass {
+  background: var(--frosted-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(237, 230, 214, 0.5);
+}
+
+.card {
+  background: var(--pure-ivory);
+  border: 1px solid var(--border-whisper);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}

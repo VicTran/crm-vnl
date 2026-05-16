@@ -1,0 +1,67 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-container {
+  flex: 1;
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  margin-top: 64px;
+  padding: 32px;
+  background-color: var(--paper-white);
+  min-height: calc(100vh - 64px);
+}
+
+.page-header {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.page-title {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  color: var(--muted-sand);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Common UI Elements */
+.btn-primary {
+  background: var(--amber-gold);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--amber-gold-soft);
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-success { background: #DBE7D4; color: #3F5A33; }
+.badge-warning { background: #F7EBC9; color: #8B5E0B; }
+.badge-neutral { background: #EDE6D6; color: #6B5A45; }
+.badge-error { background: #EFD9D2; color: #7A3826; }

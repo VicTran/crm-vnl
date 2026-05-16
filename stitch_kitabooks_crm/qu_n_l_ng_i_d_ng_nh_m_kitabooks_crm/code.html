@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#fcefe2",
+                        "on-surface": "#211b13",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#f1dcc6",
+                        "tertiary-fixed-dim": "#d9c3a9",
+                        "surface-bright": "#fff8f4",
+                        "secondary-fixed-dim": "#d7c3ae",
+                        "surface-container": "#f9ecdf",
+                        "on-secondary-container": "#6f604e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#524434",
+                        "on-surface-variant": "#514535",
+                        "surface": "#fff8f4",
+                        "tertiary-container": "#a6927a",
+                        "secondary": "#6b5c4a",
+                        "outline-variant": "#d6c4b0",
+                        "inverse-primary": "#ffb952",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffddb3",
+                        "on-background": "#211b13",
+                        "tertiary": "#6d5c46",
+                        "on-tertiary-fixed-variant": "#544430",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#f7dfc4",
+                        "inverse-surface": "#362f27",
+                        "on-tertiary-fixed": "#251909",
+                        "primary-fixed-dim": "#ffb952",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#ede0d4",
+                        "primary-container": "#c8881c",
+                        "on-primary-fixed-variant": "#633f00",
+                        "surface-variant": "#ede0d4",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#e4d8cc",
+                        "surface-tint": "#825500",
+                        "on-secondary-fixed": "#241a0c",
+                        "background": "#fff8f4",
+                        "surface-container-low": "#fff1e5",
+                        "on-primary-container": "#412800",
+                        "secondary-fixed": "#f4dfc9",
+                        "outline": "#837563",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "64px",
+                        "gutter": "24px",
+                        "container-padding-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Literata"],
+                        "headline-lg-mobile": ["Literata"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Literata"],
+                        "caption": ["Inter"],
+                        "headline-lg": ["Literata"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background-color: rgba(251, 248, 241, 0.8);
+            border: 1px solid rgba(168, 153, 128, 0.3);
+            border-radius: 20px;
+        }
+        .input-underline {
+            border: none;
+            border-bottom: 2px solid #d6c4b0;
+            background-color: transparent;
+            transition: border-color 0.3s;
+        }
+        .input-underline:focus {
+            border-bottom-color: #c8881c;
+            outline: none;
+            box-shadow: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-surface font-body-md text-body-md min-h-screen">
+<!-- SideNavBar (Persistent) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container border-r border-outline-variant/20 flex flex-col py-8 px-4 z-50">
+<div class="mb-10 px-2 flex items-center gap-3">
+<img alt="Kitabooks Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiAB8250wFzVrzW8Xz6OheEf-o2vzxkPm_XMPake1CxDeJTwI_2UFh-5yx9ON5HEkS3G99K7uxN5c6tCF6XUHQ_85vOXg54cae-pIMZXMmv4SYeAgZqq6nob9beHe4hj-lvlJD2925ZCvj7Xbs6oBTzEPrgjnakL6tEp9WB9zLA1GZZh5D88a1AX6VWiprKmhO9mcRgAF2VZn9mxzIcQI8QJNJVNOsWqL1Wx47ZW0rKPn_CpJPDPBkBP_g"/>
+<h1 class="font-headline-md text-headline-md text-primary">Kitabooks CRM</h1>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<!-- Active State: Admin -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary border-r-2 border-primary bg-primary-fixed/10 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings_applications">settings_applications</span>
+<span class="font-medium">Admin</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/10 pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-caption">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-fixed-variant hover:bg-secondary-fixed/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-caption">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 bg-surface/80 backdrop-blur-lg border-b border-outline-variant/20 shadow-sm z-40 px-10 py-4 flex justify-between items-center">
+<div class="flex items-center gap-6">
+<h2 class="font-headline-md text-headline-md font-light text-primary">Quản lý người dùng &amp; Nhóm</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="input-underline pl-8 pr-4 py-1 text-body-md w-64" placeholder="Tìm kiếm nhân viên..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<button class="cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-10 max-w-[1400px] w-full mx-auto">
+<!-- Action Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex gap-8 mb-4">
+<button class="text-primary font-medium border-b-2 border-primary pb-2 font-headline-md">Nhân viên</button>
+<button class="text-on-surface-variant font-light hover:text-primary transition-colors pb-2 font-headline-md">Nhóm làm việc</button>
+<button class="text-on-surface-variant font-light hover:text-primary transition-colors pb-2 font-headline-md">Phân quyền</button>
+</nav>
+</div>
+<button class="bg-[#C8881C] text-[#211b13] px-6 py-2.5 rounded-lg font-medium flex items-center gap-2 hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                    Thêm nhân viên
+                </button>
+</div>
+<!-- Dashboard Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Main User Table Card -->
+<div class="col-span-12 lg:col-span-8 glass-card p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-lg text-headline-lg text-secondary">Danh sách nhân viên</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container px-3 py-1 rounded-full text-caption text-secondary border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="filter_list">filter_list</span> Lọc
+                            </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/10">
+<th class="py-4 px-2 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Nhân viên</th>
+<th class="py-4 px-2 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Vai trò</th>
+<th class="py-4 px-2 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Nhóm</th>
+<th class="py-4 px-2 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Trạng thái</th>
+<th class="py-4 px-2 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container/30 transition-colors">
+<td class="py-4 px-2">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img class="h-full w-full object-cover" data-alt="A professional portrait of a male curator in a heritage library setting. He is wearing a classic tweed blazer and glasses, standing in front of shelves filled with antique leather-bound books. The lighting is warm and intellectual, highlighting the rich wood textures and golden tones of the library's atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7wvnVTkOYMUjfFKfZrQMR3sbEBDSPdAM2xPk0MgdfOdb-t79HGVFKnYk5ZRlfKOBQmbuZajIOzTox-iMjKPvL4UjQm30irJIyfhwEvcKfJzzPUYjV1RzlJrSHAIhlhIvbBHp9c9zaIAfltVBZ1a4MLUniJki6tDMNsY6hVelC3AWDJpDDgBVrwKKcNH2vt56MJtfygrZzNNiZ4fCbas2sXL5DMDo4SNGTBAPcWN9owPWziWAAXdbM-DHTduOCD0zl1Mt82VEm_zu4"/>
+</div>
+<div>
+<p class="font-medium text-on-surface">Lê Hoàng Nam</p>
+<p class="text-caption text-on-surface-variant">nam.le@kitabooks.vn</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-2">
+<span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-2 py-0.5 rounded text-caption border border-primary/20">Admin</span>
+</td>
+<td class="py-4 px-2 text-on-surface-variant">Ban Quản Trị</td>
+<td class="py-4 px-2">
+<span class="flex items-center gap-1.5 text-caption text-green-700">
+<span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
+                                            Đang hoạt động
+                                        </span>
+</td>
+<td class="py-4 px-2 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-primary-container/20 rounded-md text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-md text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container/30 transition-colors">
+<td class="py-4 px-2">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img class="h-full w-full object-cover" data-alt="A professional portrait of a female editor in a modern studio. She has a look of quiet intelligence and is wearing minimalist jewelry and a cream silk blouse. The background is a soft, blurred studio with warm beige tones that reflect a high-end, literary brand identity. The lighting is diffused and elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkOKgSVHIK_0Amk9AvCNpNAflxkZLvEidw5_9sCWIvxhmWo_WGxchZm5yRs4dX0VABc9C-QKMADf4adUWFRcya7yrG4x4rsPTFjejpqKV0Hai80WZ8tIZJIVkhJetiQ5IkEYlCHiYsL6ZTqIz7TU7rbVnKuqQHX9-LqTzBwRgJdp8zQN_getPSDmraQozlD7xltq906nEOH2RtWu-1i2IHtrb11rroCdp-s9ZwNXkF0Adh0IFgFf5xtt5xkIuWo6kR3K5Lyo6HlyDt"/>
+</div>
+<div>
+<p class="font-medium text-on-surface">Nguyễn Thu Hà</p>
+<p class="text-caption text-on-surface-variant">ha.nguyen@kitabooks.vn</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-caption border border-outline-variant/30">Manager</span>
+</td>
+<td class="py-4 px-2 text-on-surface-variant">Ban Biên Tập</td>
+<td class="py-4 px-2">
+<span class="flex items-center gap-1.5 text-caption text-green-700">
+<span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
+                                            Đang hoạt động
+                                        </span>
+</td>
+<td class="py-4 px-2 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-primary-container/20 rounded-md text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-md text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container/30 transition-colors">
+<td class="py-4 px-2">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img class="h-full w-full object-cover" data-alt="A portrait of a male support lead in a high-end office environment. He is dressed in a dark neutral sweater, looking friendly yet focused. The background is a sophisticated workspace with glass partitions and soft warm lighting, creating a calm and professional atmosphere that aligns with a prestigious publishing house's aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW6xMSinAE0YizANP9Mh4vaG9RnRiDasMjmnB9wAZCRve-NYa_iCCpHFoFu6ZBJLKLvEIlXpcyYKXQT3wxRLeufOYqv3C-clzlihQGXyZ9AfxaqjkG921ZqrVkBddl9gCjjl5cd_nRMOhhHTSF4R8xGa3q0cPzcz_Q8B67Onp4W3iqlLDY_ntRfRGum1A0YemBVECWaBKd50m4pxcbpxt-dPnMAQ_0PxbtiiTSaMDmkAzXIDfDsEowLgdXVqBbAjFTsmWgmEzC2Vxb"/>
+</div>
+<div>
+<p class="font-medium text-on-surface">Trần Minh Quân</p>
+<p class="text-caption text-on-surface-variant">quan.tran@kitabooks.vn</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-2">
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded text-caption border border-outline-variant/20">Editor</span>
+</td>
+<td class="py-4 px-2 text-on-surface-variant">Đội CSKH</td>
+<td class="py-4 px-2">
+<span class="flex items-center gap-1.5 text-caption text-on-surface-variant">
+<span class="h-1.5 w-1.5 rounded-full bg-outline"></span>
+                                            Nghỉ phép
+                                        </span>
+</td>
+<td class="py-4 px-2 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-primary-container/20 rounded-md text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-md text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-6 flex justify-between items-center border-t border-outline-variant/10 pt-4 text-caption text-on-surface-variant">
+<p>Hiển thị 1-10 của 42 nhân viên</p>
+<div class="flex gap-1">
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<button class="px-2 py-1 bg-primary text-on-primary rounded text-[12px]">1</button>
+<button class="px-2 py-1 hover:bg-surface-container rounded text-[12px]">2</button>
+<button class="px-2 py-1 hover:bg-surface-container rounded text-[12px]">3</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Group Sidebar Cards -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Ban Biên Tập -->
+<div class="glass-card p-6 flex flex-col h-full border-l-4 border-l-[#C8881C]">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline-md text-headline-md text-secondary">Ban Biên Tập</h4>
+<p class="text-caption text-on-surface-variant mt-1">Quản lý nội dung &amp; xuất bản</p>
+</div>
+<span class="bg-secondary-fixed/30 text-secondary px-3 py-1 rounded-full text-[12px] font-medium">12 thành viên</span>
+</div>
+<div class="mb-4">
+<p class="text-label-md text-on-surface-variant uppercase tracking-wider text-[11px] mb-2">Trưởng nhóm</p>
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-surface overflow-hidden" title="Nguyễn Thu Hà">
+<img class="h-full w-full object-cover" data-alt="Close up portrait of a senior literary editor with a calm expression, wearing professional attire. The image is bathed in soft, warm indoor lighting, with hints of a bookish environment in the background. The aesthetic is clean, sophisticated, and aligns with high-end editorial standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSvJxeWjSww_RzAg-_HOpBfmrEOhAVSkOXFAwI9zHbbzIlxhARMfT3XIk5hO-Y6YFbSCml66MZeWG5HoWpjG47jyENdw6hlRWzonTMIUDdg4pfl8Q8F6Fq229YRajbA1SpE3BM1OT_6galESfG0n_UZbYYFnwGZnxyW-RL_dskFqQxBIn_NWSy4hlWSPHNW__tBdplCC4rUeTcGoaGuRPrcnn5zZLLwpd0ujnjCowNh4fQrqUd9QTDkOkLqowEZnaiK6gdUuGZKiXY"/>
+</div>
+<div class="h-8 w-8 rounded-full border-2 border-surface overflow-hidden" title="Phạm Văn Đức">
+<img class="h-full w-full object-cover" data-alt="Professional headshot of a creative director in a heritage publishing company. He has a thoughtful expression and is dressed in a charcoal gray turtleneck. The background is a soft-focus office with warm wooden accents and golden-hour light streaming through a window. The overall mood is serious, scholarly, and refined." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8q_lqQV3kDBCVNwchAe5ED_-2ZvD-gCksCZSgx-npqJ--gh5dz1-QW2RxVrMKQjOMB_zZikmJJAMt3K-4dawBDsHQgOyZ6jr6pqPnLvZ2i1PVHrw7OIIVkA76yDZEnwH_w3FwQO2DjfdyZTay4OMJGjN9aquqxj9KLLZeGSWONasv8-zD-E0FQ8ScTW6Ysl0AthiOuDVcItwIXam-0_tMZsVA06PIlffoLhRmf1nxT8myA-8L5A_BeIDOZBtzcdVHoo9BIBxJeqeP"/>
+</div>
+</div>
+</div>
+<button class="mt-auto border border-outline-variant/30 py-2 rounded-lg text-secondary text-caption hover:bg-secondary-fixed/10 transition-colors">Xem chi tiết nhóm</button>
+</div>
+<!-- Đội Chăm Sóc Khách Hàng -->
+<div class="glass-card p-6 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline-md text-headline-md text-secondary">Đội Chăm Sóc Khách Hàng</h4>
+<p class="text-caption text-on-surface-variant mt-1">Hỗ trợ độc giả &amp; đối tác</p>
+</div>
+<span class="bg-secondary-fixed/30 text-secondary px-3 py-1 rounded-full text-[12px] font-medium">18 thành viên</span>
+</div>
+<div class="mb-4">
+<p class="text-label-md text-on-surface-variant uppercase tracking-wider text-[11px] mb-2">Trưởng nhóm</p>
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-surface overflow-hidden" title="Trần Minh Quân">
+<img class="h-full w-full object-cover" data-alt="Portrait of a friendly and capable customer service manager in a professional setting. He is wearing a crisp white shirt and navy blazer. The lighting is bright and modern, creating a welcoming and trustworthy atmosphere. The background is a minimalist office space with subtle warm tones that reinforce a sense of tranquility and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdJI4jwSNRIPyb-6ZSDCgSB5MIoaG6nTULLwFzdMacqHRX5Fpl_tur9fa--n3d3AI2mR4DkoA-4pzUZfSqu4X3xjUCf4b76QrKUwuDoIeUM9ysy_Jq8e2mDkcvgPEfsQ-Wh_UDwhwsvv-rjvsDcf2k5oCMZWXunF1-cXBUsdClBX3cfHXFC029OPq7oVziShPB0-sf5L6RrHekuS5J5ve3fiZNslcdZ4EqkpZL-qcr_OZnaDEHNEcnzB-l7fqwXnTAm-obzxcV3poI"/>
+</div>
+</div>
+</div>
+<button class="mt-auto border border-outline-variant/30 py-2 rounded-lg text-secondary text-caption hover:bg-secondary-fixed/10 transition-colors">Xem chi tiết nhóm</button>
+</div>
+<!-- Quick Summary Card -->
+<div class="bg-primary-container/10 p-6 rounded-[20px] border border-primary/10">
+<div class="flex items-center gap-3 mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="font-medium">Tổng quan hệ thống</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between">
+<span class="text-caption text-on-surface-variant">Tổng số người dùng</span>
+<span class="font-medium">124</span>
+</div>
+<div class="flex justify-between">
+<span class="text-caption text-on-surface-variant">Tổng số nhóm</span>
+<span class="font-medium">8</span>
+</div>
+<div class="flex justify-between">
+<span class="text-caption text-on-surface-variant">Vai trò đang hoạt động</span>
+<span class="font-medium">4</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full mt-auto border-t border-outline-variant/10 bg-surface-container-low py-6 px-10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md text-primary">Kitabooks</span>
+<p class="font-caption text-caption text-on-surface-variant">© 2024 Kitabooks. Curating literary excellence.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer text-caption" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer text-caption" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer text-caption" href="#">Terms of Service</a>
+</div>
+</footer>
+</main>
+</body></html>

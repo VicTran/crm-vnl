@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            background: rgba(251, 248, 241, 0.8);
+            border: 1px solid rgba(168, 153, 128, 0.3);
+        }
+        .paper-bg {
+            background-color: #fff8f4;
+            background-image: radial-gradient(#ede0d4 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#412800",
+                        "on-surface-variant": "#514535",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb952",
+                        "on-surface": "#211b13",
+                        "surface-bright": "#fff8f4",
+                        "on-tertiary-fixed": "#251909",
+                        "background": "#fff8f4",
+                        "secondary-container": "#f1dcc6",
+                        "primary-container": "#c8881c",
+                        "on-tertiary-fixed-variant": "#544430",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#6d5c46",
+                        "outline-variant": "#d6c4b0",
+                        "inverse-on-surface": "#fcefe2",
+                        "surface-dim": "#e4d8cc",
+                        "surface-container-high": "#f3e6da",
+                        "surface-container-low": "#fff1e5",
+                        "on-secondary-fixed-variant": "#524434",
+                        "on-background": "#211b13",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#6f604e",
+                        "outline": "#837563",
+                        "surface-container-highest": "#ede0d4",
+                        "surface-tint": "#825500",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#a6927a",
+                        "primary-fixed": "#ffddb3",
+                        "primary": "#825500",
+                        "on-primary-fixed": "#291800",
+                        "primary-fixed-dim": "#ffb952",
+                        "surface-container": "#f9ecdf",
+                        "secondary-fixed": "#f4dfc9",
+                        "surface-variant": "#ede0d4",
+                        "on-tertiary-container": "#392b19",
+                        "tertiary-fixed": "#f7dfc4",
+                        "secondary-fixed-dim": "#d7c3ae",
+                        "on-secondary-fixed": "#241a0c",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f4",
+                        "secondary": "#6b5c4a",
+                        "inverse-surface": "#362f27",
+                        "on-primary-fixed-variant": "#633f00",
+                        "tertiary-fixed-dim": "#d9c3a9",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-padding-mobile": "20px",
+                        "section-gap": "64px",
+                        "gutter": "24px",
+                        "container-padding-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-md": ["Literata"],
+                        "headline-lg-mobile": ["Literata"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Literata"],
+                        "display-lg": ["Literata"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen paper-bg overflow-hidden">
+<!-- Dashboard Background State (Blurred) -->
+<div class="fixed inset-0 z-0 flex flex-col blur-md grayscale-[20%] opacity-50 pointer-events-none">
+<!-- TopAppBar -->
+<header class="flex justify-center items-center w-full px-container-padding-mobile md:px-container-padding-desktop py-4 bg-transparent">
+<div class="flex justify-between items-center w-full max-w-7xl">
+<span class="font-headline-md text-headline-md text-primary">Kitabooks CRM</span>
+<div class="flex gap-8">
+<span class="font-label-md text-label-md text-primary font-bold">Khách hàng</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Kho sách</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Báo cáo</span>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-7xl mx-auto px-10 py-12">
+<div class="grid grid-cols-12 gap-8">
+<!-- Mock Bento Grid Background -->
+<div class="col-span-8 glass-panel rounded-[20px] h-64 p-8"></div>
+<div class="col-span-4 glass-panel rounded-[20px] h-64 p-8"></div>
+<div class="col-span-12 glass-panel rounded-[20px] h-96 p-8"></div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay Container -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-on-background/20 backdrop-blur-[2px] p-6">
+<!-- The Modal -->
+<div class="glass-panel w-full max-w-3xl rounded-[20px] shadow-2xl flex flex-col overflow-hidden max-h-[921px]">
+<!-- Modal Header -->
+<div class="px-8 py-6 border-b border-outline-variant/30 flex justify-between items-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Thêm Khách hàng mới</h1>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</div>
+<!-- Modal Content (Scrollable) -->
+<div class="p-8 overflow-y-auto custom-scrollbar flex-1">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<!-- Họ và tên -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Họ và tên</label>
+<input class="bg-surface-container border-0 border-b border-outline focus:border-primary-container focus:ring-0 transition-all font-body-md text-body-md py-3 px-1 text-on-surface" type="text" value="Nguyễn Văn An"/>
+</div>
+<!-- Số điện thoại -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Số điện thoại</label>
+<input class="bg-surface-container border-0 border-b border-outline focus:border-primary-container focus:ring-0 transition-all font-body-md text-body-md py-3 px-1 text-on-surface" placeholder="0901 234 567" type="tel"/>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Email</label>
+<input class="bg-surface-container border-0 border-b border-outline focus:border-primary-container focus:ring-0 transition-all font-body-md text-body-md py-3 px-1 text-on-surface" placeholder="vi-du@kitabooks.vn" type="email"/>
+</div>
+<!-- Nguồn khách hàng -->
+<div class="flex flex-col gap-2 relative">
+<label class="font-label-md text-label-md text-on-surface-variant">Nguồn khách hàng</label>
+<select class="appearance-none bg-surface-container border-0 border-b border-outline focus:border-primary-container focus:ring-0 transition-all font-body-md text-body-md py-3 px-1 text-on-surface">
+<option>Facebook</option>
+<option>Website</option>
+<option>Hotline</option>
+<option>Giới thiệu</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 bottom-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Nhóm khách hàng -->
+<div class="flex flex-col gap-2 relative">
+<label class="font-label-md text-label-md text-on-surface-variant">Nhóm khách hàng</label>
+<select class="appearance-none bg-surface-container border-0 border-b border-outline focus:border-primary-container focus:ring-0 transition-all font-body-md text-body-md py-3 px-1 text-on-surface">
+<option>Khách lẻ</option>
+<option>VIP</option>
+<option>Doanh nghiệp</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 bottom-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Thể loại yêu thích (Multi-select style) -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Thể loại yêu thích</label>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-2">
+                                Văn học cổ điển <span class="material-symbols-outlined text-sm cursor-pointer">close</span>
+</span>
+<span class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-2">
+                                Lịch sử <span class="material-symbols-outlined text-sm cursor-pointer">close</span>
+</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md border border-outline-variant/30 flex items-center gap-2 cursor-pointer hover:bg-surface-dim">
+<span class="material-symbols-outlined text-sm">add</span> Thêm thể loại
+                            </span>
+</div>
+</div>
+<!-- Ghi chú -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Ghi chú</label>
+<textarea class="bg-surface-container border-0 border-b border-outline focus:border-primary-container focus:ring-0 transition-all font-body-md text-body-md py-3 px-1 text-on-surface resize-none" placeholder="Nhập ghi chú chi tiết về sở thích hoặc yêu cầu đặc biệt của khách hàng..." rows="3"></textarea>
+</div>
+</form>
+</div>
+<!-- Modal Footer -->
+<div class="px-8 py-8 flex justify-end gap-6 bg-surface-container-lowest/50">
+<button class="font-label-md text-label-md text-secondary border border-secondary px-8 py-3 rounded-lg hover:bg-surface-dim transition-all">
+                    Hủy
+                </button>
+<button class="font-label-md text-label-md bg-primary-container text-on-primary-container px-10 py-3 rounded-lg hover:opacity-90 transition-all shadow-lg shadow-primary-container/20">
+                    Lưu thông tin
+                </button>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="fixed bottom-12 right-12 opacity-10 pointer-events-none rotate-12">
+<span class="material-symbols-outlined text-[120px] text-primary" data-weight="fill">menu_book</span>
+</div>
+<!-- Footer Identity -->
+<footer class="fixed bottom-0 w-full flex flex-col items-center pb-8 gap-2 z-[60] pointer-events-none">
+<span class="font-headline-lg text-headline-lg text-primary opacity-20">Kitabooks CRM</span>
+<p class="font-caption text-caption text-on-surface-variant opacity-40">© 2024 Kitabooks CRM. All rights reserved.</p>
+</footer>
+</body></html>

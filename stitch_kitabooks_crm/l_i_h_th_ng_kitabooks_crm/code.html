@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#6b5c4a",
+                    "on-background": "#211b13",
+                    "surface-bright": "#fff8f4",
+                    "secondary-fixed-dim": "#d7c3ae",
+                    "tertiary-fixed": "#f7dfc4",
+                    "primary": "#825500",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#fff1e5",
+                    "on-primary-fixed": "#291800",
+                    "tertiary": "#6d5c46",
+                    "outline-variant": "#d6c4b0",
+                    "on-primary-container": "#412800",
+                    "secondary-container": "#f1dcc6",
+                    "on-tertiary-fixed": "#251909",
+                    "surface-container-high": "#f3e6da",
+                    "inverse-on-surface": "#fcefe2",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary-container": "#c8881c",
+                    "inverse-surface": "#362f27",
+                    "on-secondary-container": "#6f604e",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#524434",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#f4dfc9",
+                    "tertiary-container": "#a6927a",
+                    "on-tertiary-fixed-variant": "#544430",
+                    "on-surface": "#211b13",
+                    "inverse-primary": "#ffb952",
+                    "tertiary-fixed-dim": "#d9c3a9",
+                    "surface": "#fff8f4",
+                    "background": "#fff8f4",
+                    "primary-fixed-dim": "#ffb952",
+                    "on-tertiary-container": "#392b19",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#e4d8cc",
+                    "on-primary-fixed-variant": "#633f00",
+                    "surface-tint": "#825500",
+                    "primary-fixed": "#ffddb3",
+                    "surface-container": "#f9ecdf",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#241a0c",
+                    "outline": "#837563",
+                    "surface-variant": "#ede0d4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#514535",
+                    "surface-container-highest": "#ede0d4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-mobile": "20px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "section-gap": "64px",
+                    "container-padding-desktop": "40px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Literata"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Literata"],
+                    "caption": ["Inter"],
+                    "headline-lg-mobile": ["Literata"],
+                    "headline-md": ["Literata"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background-color: rgba(251, 248, 241, 0.8);
+            border: 1px border rgba(168, 153, 128, 0.3);
+        }
+        .ink-stain {
+            filter: grayscale(1) sepia(1) hue-rotate(-20deg) saturate(0.5) opacity(0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim overflow-hidden">
+<!-- Header (Suppressed active state for Error Screen) -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm shadow-on-background/5 fixed top-0 z-50 flex justify-between items-center w-full px-10 py-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">Kitabooks</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<span class="font-label-md text-label-md text-secondary hover:text-primary transition-colors cursor-pointer">Catalog</span>
+<span class="font-label-md text-label-md text-secondary hover:text-primary transition-colors cursor-pointer">Curations</span>
+<span class="font-label-md text-label-md text-secondary hover:text-primary transition-colors cursor-pointer">Archives</span>
+<span class="font-label-md text-label-md text-secondary hover:text-primary transition-colors cursor-pointer">Ledger</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-low/50 rounded-full transition-all duration-300">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-low/50 rounded-full transition-all duration-300">settings</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="min-h-screen flex items-center justify-center relative p-container-padding-mobile md:p-container-padding-desktop">
+<!-- Abstract Background Elements -->
+<div class="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+<div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-primary blur-3xl"></div>
+<div class="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-secondary-fixed blur-3xl"></div>
+</div>
+<!-- Error Card (Bento-style layout for centered error state) -->
+<div class="glass-card max-w-2xl w-full rounded-[20px] shadow-2xl shadow-on-background/5 overflow-hidden relative z-10 border border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+<!-- Left Visual Area -->
+<div class="md:col-span-5 bg-surface-container-low/40 border-r border-outline-variant/10 relative flex items-center justify-center p-8 overflow-hidden">
+<img alt="Error Visual" class="w-full h-auto object-contain ink-stain scale-110 rotate-3" data-alt="A highly detailed close-up of a weathered, antique parchment paper with a slightly torn corner and delicate ink splatters. The paper has a warm cream and beige texture, illuminated by soft, atmospheric morning light that emphasizes the grainy fiber. Elegant espresso-colored ink stains bleed artistically into the fibers, suggesting a tragic beauty. The visual style is minimalist and high-end, aligning with a heritage library aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARqF_Ew-9UqWAHobZRzPALbdaYbEVO-KH9QeFI0Zu2lWmR5xMuiVNXA04rGXyypmDCv0sj1H3ZxOvlzumJTsT6Y1W9EyYGdb8ERtW4m9AYEbrDeDeMjehJrkpRHvVc_CEPdQcuyVCcFSkI84owhxb_jLA08lH13gm0Hgl7mFYGTmqgVDSdOSDIBPb7JftepdxXJsKAC-RVT7ROy6JayQQu7v8Oi6lEsUrqKgiKiOnYG-4wkJycfKpeqH5IuQTiH40pD2Uhuc6Akp1G"/>
+<div class="absolute top-4 left-4">
+<span class="text-[80px] font-display-lg text-primary/10 select-none">500</span>
+</div>
+</div>
+<!-- Right Content Area -->
+<div class="md:col-span-7 p-8 md:p-12 flex flex-col justify-center space-y-6">
+<div class="space-y-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface leading-tight">
+                            Bản thảo gặp sự cố bất ngờ
+                        </h1>
+<div class="w-12 h-1 bg-primary-container rounded-full"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/80">
+                        Có một lỗi kỹ thuật xảy ra khi đang tải dữ liệu. Đừng lo lắng, chúng tôi đang nỗ lực phục hồi trang này.
+                    </p>
+<div class="pt-4 flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                            Thử tải lại trang
+                        </button>
+<button class="border border-outline text-secondary px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-variant/30 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">history_edu</span>
+                            Về Nhật ký
+                        </button>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-fixed">support_agent</span>
+</div>
+</div>
+<span class="font-caption text-caption text-secondary/60">
+                            Liên hệ thủ thư nếu sự cố tiếp diễn
+                        </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Text Overlay -->
+<div class="hidden lg:block absolute bottom-12 right-12 opacity-5 pointer-events-none">
+<p class="font-display-lg text-[64px] text-on-surface rotate-90 origin-bottom-right">MANIFEST</p>
+</div>
+</main>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 px-6 py-3 flex justify-around items-center z-50">
+<div class="flex flex-col items-center gap-1 text-secondary">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-secondary">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-label-md">Catalog</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-secondary">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="text-[10px] font-label-md">Collections</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-[10px] font-label-md">Support</span>
+</div>
+</nav>
+</body></html>

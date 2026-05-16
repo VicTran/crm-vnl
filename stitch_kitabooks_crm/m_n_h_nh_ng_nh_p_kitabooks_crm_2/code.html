@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng nhập | Kitabooks CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Inter:wght@100..900&amp;family=Fraunces:opsz,wght@9..144,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb952",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#ede0d4",
+                        "on-primary-fixed": "#291800",
+                        "error-container": "#ffdad6",
+                        "background": "#fff8f4",
+                        "primary": "#825500",
+                        "inverse-surface": "#362f27",
+                        "secondary-container": "#f1dcc6",
+                        "on-background": "#211b13",
+                        "inverse-on-surface": "#fcefe2",
+                        "primary-container": "#c8881c",
+                        "on-surface": "#211b13",
+                        "on-primary-container": "#412800",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fff8f4",
+                        "surface-variant": "#ede0d4",
+                        "surface-dim": "#e4d8cc",
+                        "tertiary-fixed-dim": "#d9c3a9",
+                        "tertiary-container": "#a6927a",
+                        "secondary-fixed": "#f4dfc9",
+                        "secondary": "#6b5c4a",
+                        "on-secondary-fixed-variant": "#524434",
+                        "surface-container": "#f9ecdf",
+                        "on-tertiary-fixed": "#251909",
+                        "secondary-fixed-dim": "#d7c3ae",
+                        "on-surface-variant": "#514535",
+                        "outline-variant": "#d6c4b0",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#633f00",
+                        "surface-container-high": "#f3e6da",
+                        "tertiary": "#6d5c46",
+                        "surface-container-low": "#fff1e5",
+                        "on-tertiary-container": "#392b19",
+                        "surface-tint": "#825500",
+                        "on-secondary-fixed": "#241a0c",
+                        "on-secondary-container": "#6f604e",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f4",
+                        "outline": "#837563",
+                        "inverse-primary": "#ffb952",
+                        "tertiary-fixed": "#f7dfc4",
+                        "on-tertiary-fixed-variant": "#544430",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffddb3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "64px",
+                        "gutter": "24px",
+                        "container-padding-mobile": "20px",
+                        "container-padding-desktop": "40px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Fraunces", "serif"],
+                        "headline-lg-mobile": ["Fraunces", "serif"],
+                        "headline-md": ["Fraunces", "serif"],
+                        "display-lg": ["Fraunces", "serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "300" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "300" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "300" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "300" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "300" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .bg-login {
+            background-image: url('https://lh3.googleusercontent.com/aida/ADBb0uiOxFQYdmpviILLDyt6HaSp-k75mRTguZS4u2SXHy2O_c7nI8LKLmSSjG1KwMaumcPOZZ0moPpBfd16_sXLR-vrOxT-9BcqXaAs_TdHmAZEaGU5k80qS4CHHLrPEtIQvgDSf3BfME2QqqwjbUeQs9XQ9koMjShDqsTU3I10_gQ0eXWPmGdaRHbVV1PjnCRdhPfWjkkjggxdB_lNY6NvNjsnZAi9U3d7QZMKV91I-hH7HFc0MlM333QWudE');
+            background-size: cover;
+            background-position: center;
+            filter: blur(40px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(251, 248, 241, 0.85);
+            z-index: -1;
+        }
+        .login-card {
+            background: rgba(255, 251, 240, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(237, 230, 214, 0.5);
+            box-shadow: 0 4px 24px rgba(58, 46, 31, 0.05);
+        }
+        .input-underlined {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(168, 153, 128, 0.3);
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            transition: border-color 0.3s ease;
+        }
+        .input-underlined:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: #C8881C;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            color: #6B5A45;
+        }
+        .btn-google {
+            border: 1px solid rgba(168, 153, 128, 0.5);
+            transition: all 0.2s ease;
+        }
+        .btn-google:hover {
+            background: rgba(237, 230, 214, 0.3);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+<div class="bg-login"></div>
+<div class="overlay"></div>
+<main class="flex flex-col items-center">
+<div class="login-card w-full max-w-[400px] p-[40px] rounded-[20px] flex flex-col gap-[20px]">
+<!-- 1. Logo -->
+<div class="flex justify-center">
+<img alt="Kitabooks Logo" class="h-[48px] w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiAB8250wFzVrzW8Xz6OheEf-o2vzxkPm_XMPake1CxDeJTwI_2UFh-5yx9ON5HEkS3G99K7uxN5c6tCF6XUHQ_85vOXg54cae-pIMZXMmv4SYeAgZqq6nob9beHe4hj-lvlJD2925ZCvj7Xbs6oBTzEPrgjnakL6tEp9WB9zLA1GZZh5D88a1AX6VWiprKmhO9mcRgAF2VZn9mxzIcQI8QJNJVNOsWqL1Wx47ZW0rKPn_CpJPDPBkBP_g"/>
+</div>
+<!-- 2. Header & 3. Subtitle -->
+<div class="text-center">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#3A2E1F] leading-tight">
+                    Chào mừng trở lại nhà sách
+                </h1>
+<p class="font-body-lg text-[14px] text-[#6B5A45] mt-2">
+                    Đăng nhập để tiếp tục
+                </p>
+</div>
+<!-- 4. Input Email -->
+<div class="flex flex-col gap-1 mt-4">
+<label class="font-label-md text-label-md text-[#6B5A45]" for="email">Email</label>
+<input class="input-underlined font-body-md text-on-surface py-2" id="email" placeholder="ten@kitabook.vn" type="email"/>
+</div>
+<!-- 5. Input Password -->
+<div class="flex flex-col gap-1 relative">
+<label class="font-label-md text-label-md text-[#6B5A45]" for="password">Mật khẩu</label>
+<div class="relative">
+<input class="input-underlined w-full font-body-md text-on-surface py-2 pr-10" id="password" type="password"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 flex items-center" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- 6. Button Primary -->
+<button class="w-full h-[44px] bg-[#C8881C] text-[#291800] font-label-md rounded-[8px] mt-2 hover:opacity-90 transition-opacity">
+                Đăng nhập
+            </button>
+<!-- 7. Divider -->
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-1 bg-[#EDE6D6]"></div>
+<span class="font-caption text-[13px] text-[#A89980]">— hoặc —</span>
+<div class="h-[1px] flex-1 bg-[#EDE6D6]"></div>
+</div>
+<!-- 8. Button Secondary -->
+<button class="btn-google flex items-center justify-center gap-3 w-full h-[44px] rounded-[8px] bg-transparent text-[#6B5A45] font-label-md">
+<svg height="18" viewbox="0 0 24 24" width="18">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                Đăng nhập với Google
+            </button>
+<!-- 9. Link Ghost -->
+<div class="text-center">
+<a class="font-label-md text-[#C8881C] hover:underline transition-all" href="#">
+                    Quên mật khẩu?
+                </a>
+</div>
+</div>
+<!-- Copyright -->
+<footer class="mt-[24px]">
+<p class="font-caption text-[#A89980] tracking-wide">
+                © 2026 Kitabooks · kitabook.vn
+            </p>
+</footer>
+</main>
+</body></html>

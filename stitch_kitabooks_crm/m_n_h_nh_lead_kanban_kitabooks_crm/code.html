@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kitabooks CRM - Lead Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#f3e6da",
+                        "on-tertiary-fixed": "#251909",
+                        "tertiary-container": "#a6927a",
+                        "secondary-container": "#f1dcc6",
+                        "on-tertiary-fixed-variant": "#544430",
+                        "surface-container": "#f9ecdf",
+                        "secondary-fixed-dim": "#d7c3ae",
+                        "inverse-surface": "#362f27",
+                        "background": "#fff8f4",
+                        "on-primary-fixed-variant": "#633f00",
+                        "inverse-on-surface": "#fcefe2",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f4",
+                        "on-primary-container": "#412800",
+                        "surface-dim": "#e4d8cc",
+                        "primary-fixed-dim": "#ffb952",
+                        "on-surface-variant": "#514535",
+                        "on-primary-fixed": "#291800",
+                        "primary-container": "#c8881c",
+                        "on-secondary-fixed-variant": "#524434",
+                        "surface-container-highest": "#ede0d4",
+                        "secondary-fixed": "#f4dfc9",
+                        "surface-tint": "#825500",
+                        "surface-variant": "#ede0d4",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#825500",
+                        "inverse-primary": "#ffb952",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff1e5",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#392b19",
+                        "tertiary-fixed": "#f7dfc4",
+                        "surface-bright": "#fff8f4",
+                        "on-surface": "#211b13",
+                        "on-background": "#211b13",
+                        "on-secondary-fixed": "#241a0c",
+                        "outline": "#837563",
+                        "tertiary-fixed-dim": "#d9c3a9",
+                        "secondary": "#6b5c4a",
+                        "tertiary": "#6d5c46",
+                        "primary-fixed": "#ffddb3",
+                        "on-secondary-container": "#6f604e",
+                        "outline-variant": "#d6c4b0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "64px",
+                        "gutter": "24px",
+                        "container-padding-mobile": "20px",
+                        "base": "8px",
+                        "container-padding-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Literata"],
+                        "display-lg": ["Literata"],
+                        "headline-md": ["Literata"],
+                        "headline-lg-mobile": ["Literata"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .kanban-column-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(168, 153, 128, 0.3) transparent;
+        }
+        .kanban-column-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .kanban-column-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(168, 153, 128, 0.3);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-64 z-50 bg-surface-container-low/90 backdrop-blur-xl border-r border-outline-variant/20 flex flex-col h-full py-8 px-4 shadow-md">
+<div class="flex items-center gap-4 px-2 mb-12">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Kitabooks Logo" class="w-6 h-6 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyTYud7FXWkO4kpomEjhq72h3KCizYgIIYD02YfNqr0LE54tyHyRhtTBuzsQaKYlNoiiJjAKbbiXEZdOKCHjrjdK-mngx5IK1P9UPrVF_Bg8IiNDCo0xErUis3dGel3xDImHkGK9U_hJtMGn6dQeMxFABlqcBlosRWL8mpY-kQIY6DigDHZAGK2c0xpq2zTmY7zmaIU9QMq6ptr12pHu86nTODX3ZMaURe7W6ZbFvyB4VvWxBkQQsn-_hI5dk_4nRmgVl0PxE3xtU4"/>
+</div>
+<div>
+<h1 class="font-display-lg text-headline-md text-primary tracking-tight">Kitabooks</h1>
+<p class="font-caption text-caption text-on-surface-variant opacity-70">Heritage CRM</p>
+</div>
+</div>
+<div class="flex-grow flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-secondary hover:text-primary hover:bg-secondary-container/20 transition-all duration-300 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-secondary hover:text-primary hover:bg-secondary-container/20 transition-all duration-300 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md">Collectors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-primary font-medium border-r-2 border-primary bg-secondary-container/30 transition-all duration-300 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">view_kanban</span>
+<span class="font-body-md">Lead Board</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-secondary hover:text-primary hover:bg-secondary-container/20 transition-all duration-300 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-body-md">Archive</span>
+</a>
+</div>
+<button class="mt-8 mb-8 mx-2 bg-primary-container text-on-primary-container py-3 px-6 rounded-xl font-label-md flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+            New Entry
+        </button>
+<div class="mt-auto border-t border-outline-variant/10 pt-6 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-secondary hover:text-primary hover:bg-secondary-container/20 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-secondary hover:text-primary hover:bg-secondary-container/20 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-surface-container/80 backdrop-blur-lg border-b border-outline-variant/20 shadow-sm flex items-center justify-between px-8 w-auto">
+<div class="flex items-center flex-1 max-w-xl bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md placeholder:text-on-surface-variant/50" placeholder="Tìm kiếm bộ sưu tập, khách hàng..." type="text"/>
+</div>
+<div class="flex items-center gap-6 ml-auto">
+<button class="text-on-surface-variant hover:bg-secondary-container/50 p-2 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-secondary-container/50 p-2 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="text-on-surface-variant hover:bg-secondary-container/50 p-2 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-primary/20 overflow-hidden ml-2">
+<img alt="Curator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a seasoned museum curator or book specialist in their 50s. The lighting is soft and warm, reminiscent of a quiet library setting. The background shows blurred wooden shelves filled with classic leather-bound books. The curator has a friendly, knowledgeable expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmhNwAsSLzXb1LxgX7LWMN0LK9o1I9Uy4iyYVUOYfjnKqJhSKTDkm_9lDnW7EpHExIjKdMg5eNSu8EF65YfnQhPJIuFKqtdaLBzxyCeJ5VwWmjWdJuzJA6gVNPMwL5ImNcS1gW4oeEXNfXD20-Zad_BKh2_cPy54sL41ZlqiI_L2FT-yYEimvVLC1vCRm4HkFlJ_nqGRYJTCCHbaNqVsT71pOH9PmSFcA-kEi5oMVxU0zWw_XaDPrgBd2fv_T-ackOBq4_8Pa8bmRZ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 h-screen flex flex-col">
+<div class="p-8 flex-grow flex flex-col min-h-0">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Bảng Quản lý Lead</h2>
+<p class="text-on-surface-variant font-body-md mt-1">Theo dõi hành trình của các nhà sưu tầm di sản.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-outline-variant rounded-full text-secondary hover:bg-surface-container-high transition-colors font-label-md flex items-center gap-2">
+<span class="material-symbols-outlined">filter_list</span>
+                        Bộ lọc
+                    </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full hover:opacity-90 transition-all active:scale-95 font-label-md flex items-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                        Tạo Lead Mới
+                    </button>
+</div>
+</div>
+<!-- Kanban Board Grid -->
+<div class="flex-grow flex gap-6 min-h-0 overflow-x-auto pb-6 kanban-column-scroll">
+<!-- Column 1: Mới liên hệ -->
+<div class="flex-shrink-0 w-80 flex flex-col h-full bg-surface-container-low/40 rounded-2xl p-4 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6 px-2">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-on-surface font-semibold">MỚI LIÊN HỆ</h3>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-caption text-secondary">3</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="flex-grow flex flex-col gap-4 overflow-y-auto pr-2 kanban-column-scroll">
+<!-- Card -->
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing">
+<h4 class="font-headline-md text-body-lg text-on-surface mb-2">Nguyễn Văn An</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">Sách cổ thế kỷ 19</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary">45,000,000 đ</span>
+<span class="text-caption text-outline">2 ngày trước</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+<div class="flex -space-x-2">
+<img alt="Owner" class="w-6 h-6 rounded-full border-2 border-surface object-cover" data-alt="A close-up portrait of a young professional assistant with short hair, wearing a beige linen shirt. Warm afternoon sunlight filters into the library setting. The image should feel organic and part of a high-end heritage brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWrbi6qAT6FTusI4EN5eTg7W2Zog0BqN8S71sJqnMO02d7GHatEMC-CsWdHLo9euJrX-5G4iCkGz29XG13Z6_zrMa5qqT62h3RtlSTJFKxLZ9ZESDZGrby87jN_wxBfkFAWBT28bnlapzs8S6NCLhzOhPPUlEwYrEGMKTxE03sgjJa9vJ-KiguWZ_r-Z2drI5DQ9UEilCbtwxtgnjNNfku469Mxx0gCpfmfNJygeI_fim-ci7zMJES7_8gHwY_qSaYd9ZrjQFAoW0j"/>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">attachment</span>
+</div>
+</div>
+<!-- Card -->
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing">
+<h4 class="font-headline-md text-body-lg text-on-surface mb-2">Trần Thị Bích</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">Bản thảo Hán Nôm</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary">120,000,000 đ</span>
+<span class="text-caption text-outline">5 giờ trước</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+<img alt="Owner" class="w-6 h-6 rounded-full border-2 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO-ELx2OEF1e-CLB9lln5NTbkCB9XiY1l0a1dGnmdmT-yJ66MgKoe4pIsYRDjOurD1xi2Co8PcQFhi3WJEMQDTtxWTKsx0WKY50ttYrI7Pu1oxIXizk-JovfF5oPvCvyWRfahHaj512UHaBtfiUI2QTcE1iIcrkfhhicQ1aDWOIET6yESHssQ9qHVz2Yd_-7Vrhof7f9Mge0PtmsCAACj3cCrzfdGM2DJpTfBIK362hZ6mWgqMb6qAvm22_KYBiNHq1RKhjygranAT"/>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]">priority_high</span>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-3 border border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md flex items-center justify-center gap-2 hover:bg-secondary-container/20 transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+                        Thêm thẻ mới
+                    </button>
+</div>
+<!-- Column 2: Đang thẩm định -->
+<div class="flex-shrink-0 w-80 flex flex-col h-full bg-surface-container-low/40 rounded-2xl p-4 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6 px-2">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-on-surface font-semibold">ĐANG THẨM ĐỊNH</h3>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-caption text-secondary">2</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="flex-grow flex flex-col gap-4 overflow-y-auto pr-2 kanban-column-scroll">
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing">
+<h4 class="font-headline-md text-body-lg text-on-surface mb-2">Lê Hoàng Nam</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">Sưu tập Tem Đông Dương</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary">85,000,000 đ</span>
+<span class="text-caption text-outline">1 ngày trước</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+<img alt="Owner" class="w-6 h-6 rounded-full border-2 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrCe8pJxDITUhiJipI-xBS2QY5ATh9wPoFzg-eNI3IrCg_8CMyza1BoGhWLmBaDnhNdU4EBLPaAutCy5HRjAusSL9XPgUgyWG0kXVh2EbVIcusdj1H0c48Zkx5YBqt4ZUDk1kDT6wq-UFJFc-LvFfKWatSQwdTDZPA1NYVLwU6-545twynBqPyc9DgmTmuarhywMDiX5CS1ra8wIeG75D-FPtYOgtD0bwbh-uXaxlE7OnJ8EsL4w3zC3lliz3tsl-UcWGDiSP2HmBE"/>
+<span class="material-symbols-outlined text-outline text-[18px]">chat_bubble</span>
+</div>
+</div>
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing">
+<h4 class="font-headline-md text-body-lg text-on-surface mb-2">Phạm Minh Quang</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">Bản in đầu tiên 1954</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary">32,500,000 đ</span>
+<span class="text-caption text-outline">3 ngày trước</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+<img alt="Owner" class="w-6 h-6 rounded-full border-2 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFI4VhI50PZXZxYORyQPr5z-GEdmmIA6714GJmZexFv93px3WHQNbxyzsZyKeHuhRjDK3dpgsf1Mlh0x_6Qar8jSrPUfgzih7Ko_vBXpy4iIAWBowDsnODkG1h7hNZXt6K8sPpE4W8GUBx8FvPUDHKdW8yZTKnzA4bVjYW1YeLxZWKklXBZDFkcOpA09TiCDra5rJbNdvTq05ok7Hb6AyVlrMlUUPN9gSaJaOT-I1dPcCz9QMvLzU72eQejamtc9AGcxmpWPK9AT-d"/>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-3 border border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md flex items-center justify-center gap-2 hover:bg-secondary-container/20 transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+                        Thêm thẻ mới
+                    </button>
+</div>
+<!-- Column 3: Đề xuất dịch vụ -->
+<div class="flex-shrink-0 w-80 flex flex-col h-full bg-surface-container-low/40 rounded-2xl p-4 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6 px-2">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-on-surface font-semibold">ĐỀ XUẤT DỊCH VỤ</h3>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-caption text-secondary">4</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="flex-grow flex flex-col gap-4 overflow-y-auto pr-2 kanban-column-scroll">
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing">
+<h4 class="font-headline-md text-body-lg text-on-surface mb-2">Vũ Thị Lan</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">Phục chế Gia phả</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary">15,000,000 đ</span>
+<span class="text-caption text-outline">Vừa xong</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+<img alt="Owner" class="w-6 h-6 rounded-full border-2 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsJKh5u0Aupw63ptJvdrOOzTUOHCzXg2akoau7U84aJhEhG-MSunAyMalHkIQhOXHgihcHLl6ZbApbDXYho5o33FJtomvlWHe9LMrM2BSeOnpUcf0YeiPPZr-712DuCYVmzeK1cYBZrKkSedknsY1TtsEJUN5d0WQ_b002OHedr1KVSY7mDJz-YRU0i17vreSSbVWn5LVf8coCe6BO1JiqoA5KtfE6gkveZjvGqViw4lAoZSDCtplcFC447iA96ombNicDavAbO4tG"/>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+</div>
+<!-- More Cards for visual depth -->
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 opacity-70">
+<h4 class="font-headline-md text-body-lg text-on-surface mb-2">Đỗ Hùng Anh</h4>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary">280,000,000 đ</span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-3 border border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md flex items-center justify-center gap-2 hover:bg-secondary-container/20 transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+                        Thêm thẻ mới
+                    </button>
+</div>
+<!-- Column 4: Đang đàm phán -->
+<div class="flex-shrink-0 w-80 flex flex-col h-full bg-surface-container-low/40 rounded-2xl p-4 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6 px-2">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-on-surface font-semibold">ĐANG ĐÀM PHÁN</h3>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-caption text-secondary">1</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="flex-grow flex flex-col gap-4 overflow-y-auto pr-2 kanban-column-scroll">
+<div class="bg-[rgba(251,248,241,0.8)] backdrop-blur-[16px] border border-[rgba(168,153,128,0.3)] rounded-[20px] p-5 shadow-sm hover:shadow-md border-l-4 border-l-primary cursor-grab active:cursor-grabbing">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-body-lg text-on-surface">Nguyễn Tuấn Tú</h4>
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded">Hot</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">Thư viện cá nhân (1000+)</span>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-primary font-bold">1,250,000,000 đ</span>
+<span class="text-caption text-outline">10 phút trước</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+<img alt="Owner" class="w-6 h-6 rounded-full border-2 border-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCcJguKuvytRSlUSiU18fK8BhqmXQmpZCRDbFdE-g9qeBDFXeE91z0sq2uEIPqEr9U2R1gUvR4Q97jebG_oha6ImrVlxF12GgBGApX5JmCEhsvK8GSo_e3eeYCfY93KiS7Ni-D9926lQuL7T4xykwjK12DXZECAIEPJgq5WqHPwCAsCK_BrGK3Ez76hV2zSXHBaxSXXQsAEZZTyFFUoBMO3UJJJK895q0qss4o58PEYe_VBoawnUpjo0oHeu1QFjDYHOTTAKe_Pjtf"/>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-caption font-bold">VIP</span>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-3 border border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md flex items-center justify-center gap-2 hover:bg-secondary-container/20 transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+                        Thêm thẻ mới
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[32px]">history_edu</span>
+</button>
+</body></html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh sách Lead đã lưu - Kitabooks CRM</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#6b5c4a",
+                        "secondary-fixed-dim": "#d7c3ae",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#241a0c",
+                        "surface-container": "#f9ecdf",
+                        "secondary-fixed": "#f4dfc9",
+                        "primary-fixed": "#ffddb3",
+                        "primary": "#825500",
+                        "on-tertiary-container": "#392b19",
+                        "inverse-on-surface": "#fcefe2",
+                        "on-surface": "#211b13",
+                        "surface-variant": "#ede0d4",
+                        "on-primary-fixed-variant": "#633f00",
+                        "inverse-primary": "#ffb952",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-highest": "#ede0d4",
+                        "on-tertiary-fixed": "#251909",
+                        "on-primary-container": "#412800",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#6d5c46",
+                        "surface-bright": "#fff8f4",
+                        "on-tertiary-fixed-variant": "#544430",
+                        "surface-container-low": "#fff1e5",
+                        "background": "#fff8f4",
+                        "surface-dim": "#e4d8cc",
+                        "tertiary-fixed-dim": "#d9c3a9",
+                        "primary-fixed-dim": "#ffb952",
+                        "tertiary-fixed": "#f7dfc4",
+                        "outline-variant": "#d6c4b0",
+                        "surface-tint": "#825500",
+                        "surface-container-high": "#f3e6da",
+                        "primary-container": "#c8881c",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#514535",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#6f604e",
+                        "on-background": "#211b13",
+                        "secondary-container": "#f1dcc6",
+                        "tertiary-container": "#a6927a",
+                        "outline": "#837563",
+                        "on-secondary-fixed-variant": "#524434",
+                        "on-error": "#ffffff",
+                        "surface": "#fff8f4",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#362f27"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-desktop": "40px",
+                        "container-padding-mobile": "20px",
+                        "base": "8px",
+                        "section-gap": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Literata"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Literata"],
+                        "display-lg": ["Literata"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Literata"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "300"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "300"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "300"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background-color: rgba(251, 248, 241, 0.8);
+            border: 1px solid rgba(168, 153, 128, 0.3);
+            border-radius: 20px;
+        }
+        .sidebar-active {
+            background-color: rgba(200, 136, 28, 0.1);
+            color: #825500;
+            font-weight: 500;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff8f4;
+            color: #211b13;
+        }
+        table thead tr {
+            border-bottom: 1px solid rgba(131, 117, 99, 0.1);
+        }
+        table tbody tr {
+            border-bottom: 0.5px solid rgba(131, 117, 99, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex font-body-md text-body-md overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 hidden md:flex flex-col border-r border-outline-variant h-screen bg-surface-container-low">
+<div class="p-8">
+<img alt="Kitabooks Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiAB8250wFzVrzW8Xz6OheEf-o2vzxkPm_XMPake1CxDeJTwI_2UFh-5yx9ON5HEkS3G99K7uxN5c6tCF6XUHQ_85vOXg54cae-pIMZXMmv4SYeAgZqq6nob9beHe4hj-lvlJD2925ZCvj7Xbs6oBTzEPrgjnakL6tEp9WB9zLA1GZZh5D88a1AX6VWiprKmhO9mcRgAF2VZn9mxzIcQI8QJNJVNOsWqL1Wx47ZW0rKPn_CpJPDPBkBP_g"/>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 sidebar-active rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="font-label-md text-label-md">Danh sách Lead</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">Tìm kiếm độc giả</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-label-md">Quản lý ấn phẩm</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Báo cáo phân tích</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<div class="p-4 bg-surface-container rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="text-primary font-bold">QT</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Quản trị viên</p>
+<p class="font-caption text-caption text-on-surface-variant">admin@kitabooks.vn</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto bg-surface">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-container-padding-desktop py-4 bg-transparent">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-primary">Kitabooks CRM</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Trạng thái: </span>
+<span class="flex items-center gap-1 text-primary font-medium">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                        Trực tuyến
+                    </span>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="px-container-padding-desktop pb-section-gap pt-8 space-y-8 max-w-7xl">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Danh sách Lead đã lưu</h1>
+<p class="text-on-surface-variant font-body-md mt-2">Quản lý và phân loại các nhóm độc giả tiềm năng cho chiến dịch tiếp thị.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md text-label-md flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                    Tạo danh sách mới
+                </button>
+</div>
+<!-- Tabs/Filters -->
+<div class="flex border-b border-outline-variant gap-8">
+<button class="pb-4 border-b-2 border-primary text-primary font-medium font-label-md text-label-md">Tất cả</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors">Đang hoạt động</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors">Hoàn thành</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors">Lưu trữ</button>
+</div>
+<!-- Table Container -->
+<div class="glass-card overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-5 font-label-md text-label-md text-on-surface-variant">Tên danh sách</th>
+<th class="px-6 py-5 font-label-md text-label-md text-on-surface-variant text-center">Số lượng lead</th>
+<th class="px-6 py-5 font-label-md text-label-md text-on-surface-variant">Ngày tạo</th>
+<th class="px-6 py-5 font-label-md text-label-md text-on-surface-variant">Người sở hữu</th>
+<th class="px-6 py-5 font-label-md text-label-md text-on-surface-variant">Trạng thái</th>
+<th class="px-6 py-5 font-label-md text-label-md text-on-surface-variant text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bookmark</span>
+</div>
+<span class="font-headline-md text-headline-md text-[18px] text-on-surface">Độc giả thân thiết</span>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body-md text-on-surface">1,240</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">12/10/2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-[10px] flex items-center justify-center text-on-secondary-container">NH</div>
+<span class="font-body-md">Nguyễn Hoàng</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-[12px] font-medium text-on-primary-fixed-variant">Đang hoạt động</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-on-surface-variant">
+<button class="hover:text-primary transition-colors" title="Xem chi tiết"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="hover:text-primary transition-colors" title="Chỉnh sửa"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="hover:text-error transition-colors" title="Xóa"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<span class="font-headline-md text-headline-md text-[18px] text-on-surface">Khách hàng tiềm năng Q4</span>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body-md text-on-surface">856</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">28/09/2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-[10px] flex items-center justify-center text-on-secondary-container">TL</div>
+<span class="font-body-md">Trần Linh</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-[12px] font-medium text-on-primary-fixed-variant">Đang hoạt động</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-on-surface-variant">
+<button class="hover:text-primary transition-colors" title="Xem chi tiết"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="hover:text-primary transition-colors" title="Chỉnh sửa"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="hover:text-error transition-colors" title="Xóa"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<span class="font-headline-md text-headline-md text-[18px] text-on-surface">Nhóm yêu thích thơ ca</span>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body-md text-on-surface">432</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">15/09/2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-[10px] flex items-center justify-center text-on-secondary-container">NH</div>
+<span class="font-body-md">Nguyễn Hoàng</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-[12px] font-medium text-on-surface-variant">Lưu trữ</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-on-surface-variant">
+<button class="hover:text-primary transition-colors" title="Xem chi tiết"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="hover:text-primary transition-colors" title="Chỉnh sửa"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="hover:text-error transition-colors" title="Xóa"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<span class="font-headline-md text-headline-md text-[18px] text-on-surface">Hội thảo Bản thảo 2023</span>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body-md text-on-surface">112</td>
+<td class="px-6 py-5 font-body-md text-on-surface-variant">02/08/2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-[10px] flex items-center justify-center text-on-secondary-container">PV</div>
+<span class="font-body-md">Phạm Văn</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-[12px] font-medium text-white">Hoàn thành</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-on-surface-variant">
+<button class="hover:text-primary transition-colors" title="Xem chi tiết"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="hover:text-primary transition-colors" title="Chỉnh sửa"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="hover:text-error transition-colors" title="Xóa"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low/30 flex items-center justify-between border-t border-outline-variant/10">
+<span class="font-caption text-caption text-on-surface-variant">Hiển thị 4 trên 24 danh sách</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white font-label-md text-label-md">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:border-primary transition-colors font-label-md text-label-md">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:border-primary transition-colors font-label-md text-label-md">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto py-8 flex flex-col items-center gap-2 text-on-surface-variant">
+<span class="font-caption text-caption">© 2024 Kitabooks CRM. All rights reserved.</span>
+<div class="flex gap-6">
+<a class="font-caption text-caption hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-caption text-caption hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-caption text-caption hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</footer>
+</main>
+<!-- FAB (Suppressed as per rules for Details/Focused screens, but keeping for Home navigation if needed - however user specifically asked for List Screen context) -->
+</body></html>

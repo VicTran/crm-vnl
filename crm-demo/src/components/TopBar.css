@@ -1,0 +1,91 @@
+.topbar {
+  height: 64px;
+  width: calc(100% - 240px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: var(--paper-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 90;
+  border-bottom: 1px solid var(--border-whisper);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--pure-ivory);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-whisper);
+  width: 400px;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: var(--soft-brown);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--amber-gold);
+  border-radius: 50%;
+  border: 2px solid var(--paper-white);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info {
+  text-align: right;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-brown);
+}
+
+.user-role {
+  font-size: 12px;
+  color: var(--muted-sand);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--cream-mist);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--soft-brown);
+  border: 1px solid var(--border-whisper);
+}

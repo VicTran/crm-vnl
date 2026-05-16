@@ -1,0 +1,174 @@
+.table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-filters {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-whisper);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--paper-white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-whisper);
+  width: 320px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--muted-sand);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.tab.active {
+  background: var(--amber-gold-tint);
+  color: var(--amber-gold);
+  font-weight: 500;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th {
+  text-align: left;
+  padding: 16px 24px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted-sand);
+  background: var(--cream-mist);
+  font-weight: 500;
+}
+
+.custom-table td {
+  padding: 16px 24px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-whisper);
+}
+
+.custom-table tr:hover {
+  background: var(--cream-mist);
+}
+
+.lead-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-mini {
+  width: 32px;
+  height: 32px;
+  background: var(--amber-gold-tint);
+  color: var(--amber-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.name {
+  font-weight: 500;
+  color: var(--ink-brown);
+}
+
+.segment {
+  font-size: 12px;
+  color: var(--muted-sand);
+}
+
+.source-tag {
+  background: var(--paper-white);
+  border: 1px solid var(--border-whisper);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--soft-brown);
+}
+
+.value-cell {
+  font-weight: 500;
+  color: var(--ink-brown);
+}
+
+.action-dots {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted-sand);
+}
+
+.table-pagination {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted-sand);
+}
+
+.page-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.page-btns button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-whisper);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btns button.active {
+  background: var(--amber-gold);
+  color: white;
+  border-color: var(--amber-gold);
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid var(--border-whisper);
+  color: var(--soft-brown);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
